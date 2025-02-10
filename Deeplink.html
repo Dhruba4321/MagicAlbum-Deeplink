@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Album - Deep Link Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Magic Album - Open App via Deep Link</h2>
+    <label for="scene">Select Scene:</label>
+    <select id="scene">
+        <option value="00_AppStartUp">App StartUp</option>
+        <option value="01_Main">Main Scene</option>
+        <option value="02_ScanQR">QR Scanner</option>
+    </select>
+    <br>
+    <button onclick="generateDeepLink()">Generate Deep Link</button>
+    <p><strong>Deep Link:</strong> <span id="deeplink"></span></p>
+    <a id="openApp" style="display:none;" target="_blank">Open in Magic Album</a>
+
+    <script>
+        function generateDeepLink() {
+            let scene = document.getElementById("scene").value;
+            let deepLink = `unitydl://magicalbum.app?${scene}`;
+            document.getElementById("deeplink").innerText = deepLink;
+            document.getElementById("openApp").href = deepLink;
+            document.getElementById("openApp").style.display = "block";
+        }
+    </script>
+</body>
+</html>
