@@ -1,0 +1,1 @@
+# MagicAlbum-Deeplink
